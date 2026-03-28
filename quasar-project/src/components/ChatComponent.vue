@@ -29,6 +29,8 @@
           placeholder="Type a message..."
           class="col"
           @keyup.enter="sendMessage"
+          color="primary"
+          bg-color="transparent"
         >
           <template v-slot:append>
             <q-btn
@@ -100,42 +102,28 @@ const sendMessage = () => {
 
 <style scoped lang="scss">
 .chat-component {
-  max-width: 600px;
-  margin: 0 auto;
+  width: 100%;
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-messages-container {
-  height: 400px;
+  flex: 1;
   overflow-y: auto;
 }
 
 .chat-header {
   padding: 12px 16px;
+  flex-shrink: 0;
 }
 
 .chat-input {
   padding: 12px 16px;
-}
-</style>
-
-<style scoped lang="scss">
-.chat-component {
-  max-width: 600px;
-  margin: 0 auto;
+  flex-shrink: 0;
 }
 
-.chat-messages-container {
-  height: 400px;
-  overflow-y: auto;
-  background-color: #f5f5f5;
-}
-
-.chat-header {
-  padding: 12px 16px;
-}
-
-.chat-input {
-  padding: 12px 16px;
-  background-color: white;
+.chat-input :deep(.q-field__native) {
+  color: currentColor !important;
 }
 </style>
